@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>Add movies</title>
+    <style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("C:\Users\HP\Pictures\movies.jpg");
+
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: relative;
+  right: -700;
+  margin: 50px;
+  max-width: 500px;
+  padding: 16px;
+  background-color: white;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+</style>
+
+
+</head>
+<body>
+<div class="bg-img">
+<form method="POST" enctype="multipart/form-data" class="container">
+  {% csrf_token %}
+    <h1>Add Movie Here...</h1>
+  <input type="text" name="name" placeholder="Enter the movie name"><br><br>
+    <input type="text" name="year" placeholder="Enter the movie year"><br><br>
+    <textarea name="desc" rows="4" cols="50" placeholder="Enter the movie details"></textarea><br><br>
+    <input type="file" name="img"><br><br>
+    <input type="submit" class="btn">
+</form>
+</div>
+
+</body>
+{% endblock %}
+</html>
